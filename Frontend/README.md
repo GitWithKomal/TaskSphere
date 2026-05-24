@@ -1,16 +1,67 @@
-# React + Vite
+# 🚀 TaskSphere
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TaskSphere is a fullstack MERN task management application that allows users to securely manage their daily tasks with authentication, task prioritization, and status tracking.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Features
 
-## React Compiler
+- 🔐 JWT Authentication
+- 🔒 Protected Routes
+- 📝 Full CRUD Operations
+- 📌 Task Status Management
+- ⚡ Priority Levels (Low, Medium, High)
+- 🔍 Search Functionality
+- 🎨 Dynamic UI Colors
+- 📱 Responsive Design
+- 🔔 Toast Notifications
+- ⏳ Loading States
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Frontend
+- React.js
+- React Router DOM
+- Axios
+- Tailwind CSS
+- React Toastify
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcryptjs
+
+---
+
+## 📂 Project Structure
+
+TaskSphere/
+│
+├── Backend/
+│ ├── config/
+│ ├── controllers/
+│ ├── middleware/
+│ ├── models/
+│ ├── routes/
+│ └── server.js
+│
+└── Frontend/
+├── src/
+├── public/
+└── vite.config.js
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file inside the Backend folder and add:
+
+```env
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
