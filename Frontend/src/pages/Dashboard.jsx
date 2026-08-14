@@ -24,7 +24,6 @@ function Dashboard() {
     fetchTasks();
   }, []);
 
-  // FETCH TASKS
   const fetchTasks = async () => {
     try {
       setLoading(true);
@@ -46,7 +45,6 @@ function Dashboard() {
     }
   };
 
-  // CREATE TASK
   const createTask = async () => {
     try {
       if (!title.trim()) {
@@ -67,7 +65,7 @@ function Dashboard() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       setTitle("");
@@ -83,7 +81,6 @@ function Dashboard() {
     }
   };
 
-  // DELETE TASK
   const deleteTask = async (id) => {
     try {
       const token = localStorage.getItem("token");
@@ -103,7 +100,6 @@ function Dashboard() {
     }
   };
 
-  // UPDATE TASK
   const updateTask = async (id) => {
     try {
       const token = localStorage.getItem("token");
@@ -117,7 +113,7 @@ function Dashboard() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
       setEditingTaskId(null);
@@ -135,7 +131,6 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow">
-        {/* HEADER */}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-2xl font-bold">Dashboard</h1>
 
@@ -147,7 +142,6 @@ function Dashboard() {
           </button>
         </div>
 
-        {/* ADD TASK */}
         <div className="mb-4 flex flex-wrap gap-2">
           <input
             type="text"
@@ -186,7 +180,6 @@ function Dashboard() {
           </button>
         </div>
 
-        {/* SEARCH */}
         <input
           type="text"
           placeholder="Search tasks..."
@@ -195,7 +188,6 @@ function Dashboard() {
           className="border p-2 rounded w-full mb-4"
         />
 
-        {/* LOADING */}
         {loading ? (
           <p className="text-center mt-10">Loading tasks...</p>
         ) : tasks.length === 0 ? (
@@ -203,7 +195,7 @@ function Dashboard() {
         ) : (
           tasks
             .filter((task) =>
-              task.title.toLowerCase().includes(search.toLowerCase())
+              task.title.toLowerCase().includes(search.toLowerCase()),
             )
             .map((task) => (
               <div
@@ -213,8 +205,8 @@ function Dashboard() {
                   task.priority === "High"
                     ? "border-red-500 bg-red-50"
                     : task.priority === "Medium"
-                    ? "border-yellow-500 bg-yellow-50"
-                    : "border-green-500 bg-green-50"
+                      ? "border-yellow-500 bg-yellow-50"
+                      : "border-green-500 bg-green-50"
                 }`}
               >
                 <div>
@@ -236,8 +228,8 @@ function Dashboard() {
                         task.status === "Completed"
                           ? "text-green-600"
                           : task.status === "In Progress"
-                          ? "text-yellow-600"
-                          : "text-gray-600"
+                            ? "text-yellow-600"
+                            : "text-gray-600"
                       }`}
                     >
                       Status: {task.status}
@@ -251,8 +243,8 @@ function Dashboard() {
                         task.priority === "High"
                           ? "text-red-600"
                           : task.priority === "Medium"
-                          ? "text-yellow-600"
-                          : "text-green-600"
+                            ? "text-yellow-600"
+                            : "text-green-600"
                       }`}
                     >
                       Priority: {task.priority}

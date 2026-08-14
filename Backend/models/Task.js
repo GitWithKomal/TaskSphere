@@ -2,16 +2,14 @@ const mongoose = require("mongoose");
 
 const taskSchema = new mongoose.Schema(
   {
-    // ─── Who owns this task? ───────────────────────────────
-    // This stores the logged-in user's MongoDB _id
-    // So every task "belongs to" one specific user
+    
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",        // ← links to your existing User model
+      ref: "User",        
       required: true,
     },
 
-    // ─── Task Details ──────────────────────────────────────
+    
     title: {
       type: String,
       required: [true, "Title is required"],
@@ -31,7 +29,7 @@ const taskSchema = new mongoose.Schema(
 },
 
     deadline: {
-      type: Date,         // e.g. "2025-06-30"
+      type: Date,         
       default: null,
     },
 
@@ -42,7 +40,7 @@ const taskSchema = new mongoose.Schema(
 },
   },
   {
-    timestamps: true,     // auto-adds createdAt + updatedAt
+    timestamps: true,     
   }
 );
 

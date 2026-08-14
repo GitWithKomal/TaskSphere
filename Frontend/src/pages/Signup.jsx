@@ -20,7 +20,7 @@ function Signup() {
         password,
       });
 
-      navigate("/login"); // redirect after success
+      navigate("/login"); 
     } catch (err) {
       console.log(err.response?.data);
       setError(err.response?.data?.message || err.message);

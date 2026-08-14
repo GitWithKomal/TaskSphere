@@ -1,5 +1,3 @@
-// models/User.js
-
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
@@ -26,7 +24,6 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Pre-save hook — hashes password before saving (already written)
 userSchema.pre("save", async function () {
   if (!this.isModified("password")) return;
 
@@ -34,10 +31,9 @@ userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, salt);
 });
 
-// 👇 ADD THIS — a reusable method to compare passwords during login
-// "this" refers to the individual user document fetched from MongoDB
+
 userSchema.methods.matchPassword = async function (enteredPassword) {
-  // bcrypt.compare hashes the entered password and checks against stored hash
+  
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
